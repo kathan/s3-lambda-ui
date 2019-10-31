@@ -1,0 +1,16 @@
+        <span ng-click="displayItem(item)">{{item.name}}</span>
+    		<ul>
+    			<span ng-show="item.open">
+    			<li ng-repeat="item in item.items">
+    				<span ng-hide="(item.type !== 'directory')" ng-click="toggle(item)">
+    					<img ng-show="item.open" src="item-open.png"/>
+   						<img ng-hide="item.open" src="item.png"/>
+    				</span>
+    				{{item.name}}
+            <span class="progress-frame">
+              <div ng-style="{'border-top': '1px solid #3886d8', 'border-bottom': '1px solid #3886d8','border-radius':'5px','background-color':'419bf9','height':'3px','width': file.progress*2}"></div>
+            </span>
+    				<span ng-include="'treeItem.html'"></span>
+	        	</li>
+	        	</span>
+    		</ul>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script type="text/javascript" src="./js/drop-upload.js"></script>
+    <script type="text/javascript" src="./js/dropFile.js"></script>
+    <link rel="stylesheet" media="all" href="./css/style.css" />
+  </head>
+  <body ng-app="DUApp" ng-controller="DUCtrl">
+    <div id="du" class="du">
+      <span>Drop files here</span>
+    </div>
+    <ul class="bucket">
+   		<li ng-repeat="item in bucket.items">
+   		  <span ng-hide="(item.type !== 'directory')" ng-click="toggle(item)">
+   			  <img ng-show="item.open" src="dir-open.png"/>
+   				<img ng-hide="item.open" src="dir-closed.png"/>
+   			</span>
+   			<span ng-include="'treeItem.html'"></span>
+   		</li>
+		</ul>
+    <!--ul id="files" ng-repeat="file in files">
+      <li ng-include="'treeItem.html'">
+        {{item.name}}
+        <span class="progress-frame">
+          <div ng-style="{'border-top': '1px solid #3886d8', 'border-bottom': '1px solid #3886d8','border-radius':'5px','background-color':'419bf9','height':'3px','width': file.progress*2}"></div>
+        </span>
+      </li>
+    </ul-->
+  </body>
+</html>
